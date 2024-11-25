@@ -24,8 +24,9 @@
 <body>
     <h1>Image Contact Sheet</h1>
     <div class="gallery">
-repo_url = "https://raw.githubusercontent.com/bostonarchaeo/main"
-image_files = [
+<script>
+    const repo_url = "https://raw.githubusercontent.com/bostonarchaeo/garrett/main/";
+    const image_files = [
 "MAD-0003-001.jpeg"
 "MAD-0004-005.jpeg"
 "MAD-0004-006.jpeg"
@@ -583,10 +584,12 @@ image_files = [
 "MAD-0873-079.jpeg"
 "MAD-0873-080.jpeg"
 "MAD-0873-081.jpeg"
-]  # Add your image filenames here
+  ];
 
-for image in image_files:
-    print(f'<img src="{repo_url}{image}" alt="{image}">')
+    image_files.forEach(file => {
+        document.write(`<img src="${repo_url}${file}" alt="${file}">`);
+    });
+</script>
     </div>
 </body>
 </html>
