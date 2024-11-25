@@ -599,11 +599,23 @@
 const gallery = document.getElementById('gallery');
 
         image_files.forEach(file => {
-            const img = document.createElement('img');
-            img.src = `${repo_url}${file}`;
-            img.alt = file;
-            gallery.appendChild(img);
-        });
+        // Create a link to the full-size image
+        const link = document.createElement('a');
+        link.href = `${repo_url}${file}`;
+        link.target = "_blank"; // Open in a new tab
+        link.title = file;
+
+        // Create the thumbnail image
+        const img = document.createElement('img');
+        img.src = `${repo_url}${file}`;
+        img.alt = file;
+
+        // Append the image to the link
+        link.appendChild(img);
+
+        // Append the link to the gallery
+        gallery.appendChild(link);
+    });
     </script>
 </body>
 </html>
