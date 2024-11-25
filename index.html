@@ -2,28 +2,10 @@
 <html>
 <head>
     <title>Image Contact Sheet</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-            margin: 20px;
-        }
-        .gallery img {
-            width: 100%;
-            height: auto;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-    </style>
-</head>
+    </head>
 <body>
     <h1>Image Contact Sheet</h1>
-    <div class="gallery">
+    <div class="gallery"> id="gallery"></div>
 <script>
     const repo_url = "https://raw.githubusercontent.com/bostonarchaeo/garrett/main/";
     const image_files = [
@@ -589,6 +571,18 @@
     image_files.forEach(file => {
         document.write(`<img src="${repo_url}${file}" alt="${file}">`);
     });
+     // Get the gallery container
+        const gallery = document.getElementById('gallery');
+
+        // Generate image elements
+        image_files.forEach(file => {
+            const img = document.createElement('img');
+            img.src = `${repo_url}${file}`;
+            img.alt = file;
+            img.style.width = "200px"; // Optional: Set image size
+            img.style.margin = "10px"; // Optional: Add spacing
+            gallery.appendChild(img);
+        });
 </script>
     </div>
 </body>
